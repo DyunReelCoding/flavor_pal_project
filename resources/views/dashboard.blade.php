@@ -25,6 +25,8 @@
                         @foreach($recipes as $recipe)
                         <div class="mb-4">
                             <div class="bg-gray-100 p-4 rounded-md">
+                                <!-- Show only the food name -->
+                                <p class="text-xl font-semibold mb-2">{{ $recipe['strMeal'] }}</p>
                                 <img src="{{ $recipe['strMealThumb'] }}" alt="{{ $recipe['strMeal'] }}" class="w-full h-32 object-cover cursor-pointer" data-toggle="modal" data-target="#recipeModal_{{ $recipe['idMeal'] }}">
                             </div>
                             <!-- Modal -->
@@ -39,7 +41,14 @@
                                         </div>
                                         <div class="modal-body">
                                             <img src="{{ $recipe['strMealThumb'] }}" alt="{{ $recipe['strMeal'] }}" class="w-full h-64 object-cover mb-2">
-                                            <p>{{ $recipe['strInstructions'] }}</p>
+                                            <!-- Improve readability of instructions -->
+                                            @php
+                                            $instructions = $recipe['strInstructions'];
+                                            $paragraphs = preg_split('/\.\s+/', $instructions);
+                                            @endphp
+                                            @foreach ($paragraphs as $paragraph)
+                                            <p class="text-gray-800">{{ $paragraph }}</p>
+                                            @endforeach
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-dark close-button" data-dismiss="modal">Close</button>
@@ -58,6 +67,8 @@
                         @foreach($recipes as $recipe)
                         <div class="mb-4">
                             <div class="bg-gray-100 p-4 rounded-md">
+                                <!-- Show only the food name -->
+                                <p class="text-xl font-semibold mb-2">{{ $recipe['strMeal'] }}</p>
                                 <img src="{{ $recipe['strMealThumb'] }}" alt="{{ $recipe['strMeal'] }}" class="w-full h-32 object-cover cursor-pointer" data-toggle="modal" data-target="#recipeModal_{{ $recipe['idMeal'] }}">
                             </div>
                             <!-- Modal -->
@@ -72,7 +83,14 @@
                                         </div>
                                         <div class="modal-body">
                                             <img src="{{ $recipe['strMealThumb'] }}" alt="{{ $recipe['strMeal'] }}" class="w-full h-64 object-cover mb-2">
-                                            <p>{{ $recipe['strInstructions'] }}</p>
+                                            <!-- Improve readability of instructions -->
+                                            @php
+                                            $instructions = $recipe['strInstructions'];
+                                            $paragraphs = preg_split('/\.\s+/', $instructions);
+                                            @endphp
+                                            @foreach ($paragraphs as $paragraph)
+                                            <p class="text-gray-800">{{ $paragraph }}</p>
+                                            @endforeach
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
@@ -86,7 +104,6 @@
                     @elseif(!empty($search))
                     <p>No recipes found for '{{ $search }}'.</p>
                     @endif
-
 
                 </div>
             </div>

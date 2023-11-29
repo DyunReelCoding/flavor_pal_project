@@ -843,18 +843,40 @@
             display: flex;
             align-items: center;
         }
+
+        .login-container {
+            width: 250px;
+            height: 80px;
+            margin-left: auto;
+            padding: 20px;
+            border: 2px solid white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container a {
+            text-decoration: none;
+            color: white;
+            margin-top: 10px;
+            /* Add some space between the links */
+        }
     </style>
 </head>
 
 <body class="antialiased bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
 
     <div class="container mt-4">
-        @if (Route::has('login'))
-        <div class="text-end">
+        <!-- The login container with box shadow -->
+        <div class="login-container">
             @auth
-            <a href="{{ url('/dashboard') }}" class="btn btn-outline-secondary">Dashboard</a>
+            <a href="{{ url('/dashboard') }}" class="btn btn-outline-secondary me-2">Dashboard</a>
             @else
-            <div>
+            <div class="d-flex">
                 <a href="{{ route('login') }}" class="btn btn-primary me-2">Log in</a>
                 @if (Route::has('register'))
                 <a href="{{ route('register') }}" class="btn btn-secondary">Register</a>
@@ -862,8 +884,8 @@
             </div>
             @endauth
         </div>
-        @endif
     </div>
+
 
 
     </div>
