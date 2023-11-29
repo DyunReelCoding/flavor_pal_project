@@ -4,14 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>FlavorPal</title>
-
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <!-- Link to your external CSS file -->
+    <!-- <link rel="stylesheet" href="../css/welcome.css"> -->
 
-    <!-- Styles -->
+    <!-- Styles
     <style>
         /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */
         *,
@@ -827,48 +829,47 @@
                 padding: 2rem
             }
         }
+    </style> -->
+
+    <style>
+        body {
+            background-color: black;
+            background-image: url('/images/FlavorPal_logo.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
     </style>
 </head>
 
-<body class="antialiased">
-    <div class="relative flex justify-center items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-        @if (Route::has('login'))
-        <div class="fixed top-0 right-0 p-6 text-right z-10">
-            @auth
-            <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-            @else
-            <div class="flex items-center">
-                <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+<body class="antialiased bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
 
+    <div class="container mt-4">
+        @if (Route::has('login'))
+        <div class="text-end">
+            @auth
+            <a href="{{ url('/dashboard') }}" class="btn btn-outline-secondary">Dashboard</a>
+            @else
+            <div>
+                <a href="{{ route('login') }}" class="btn btn-primary me-2">Log in</a>
                 @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                <a href="{{ route('register') }}" class="btn btn-secondary">Register</a>
                 @endif
             </div>
             @endauth
         </div>
         @endif
-
-
-
-
+    </div>
 
 
     </div>
 
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-    </svg>
-    </a>
-
-
-    </div>
-    </div>
-
-
-
-    </div>
-    </div>
-    </div>
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
