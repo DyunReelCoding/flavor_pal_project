@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.custom-logo {
+    height: 60px;   
+    width: auto;
+}
+nav.bg-black a {
+    color: white;
+    text-decoration: none;
+}
+
+nav.bg-black a:hover {
+    color: blue;
+}
+.close-button, .btn-dark {
+    background-color: black;
+    color: white;
+}
+.dropdown-content {
+    color: black;
+}
+
